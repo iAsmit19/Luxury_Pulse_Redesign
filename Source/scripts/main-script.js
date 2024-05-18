@@ -164,7 +164,7 @@ const theLoader = () => {
 };
 
 const EXECUTIONER = () => {
-  // theLoader();
+  theLoader();
 };
 
 EXECUTIONER();
