@@ -1,16 +1,21 @@
 @font-face {
-  font-family: "Luxury Pulse VF";
+  font-family: "cinzel";
   src: url(../assets/fonts/cinzel/Cinzel-VariableFont_wght.ttf);
 }
 
 @font-face {
-  font-family: "Luxury Pulse Loader";
-  src: url(../assets/fonts/montserrat/Montserrat-VariableFont_wght.ttf);
+  font-family: "montserrat";
+  src: url(../assets/fonts/montserrat/static/Montserrat-Regular.ttf);
+}
+
+@font-face {
+  font-family: inter;
+  src: url(../assets/fonts/inter/Inter-VariableFont_slnt\,wght.ttf);
 }
 
 :root {
-  --loader: #010008;
-  --loader-font: #ffffff;
+  --loader: #000003;
+  --loader-font: #f7f7f7;
   --stars: #ffffff;
   --background: #000000;
   --font: #ffffff;
@@ -24,7 +29,7 @@
 
 html,
 body {
-  font-family: "Luxury Pulse VF";
+  font-family: "cinzel";
   position: relative;
 }
 
@@ -45,7 +50,9 @@ body {
 }
 
 .loader-content {
-  font-family: "Luxury Pulse VF";
+  font-family: "montserrat";
+  letter-spacing: 3px;
+  font-weight: 100;
   font-size: 0.8rem;
 }
 

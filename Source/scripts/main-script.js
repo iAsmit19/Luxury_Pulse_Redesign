@@ -66,7 +66,8 @@ const shootingStarAnimation = () => {
 };
 
 const loaderTextLogic = () => {
-  let loaderText_1 = "LUXURY PULSE";
+  // let loaderText_1 = "LUXURY PULSE";
+  let loaderText_1 = "Luxury Pulse";
   let loaderTextArray_1 = loaderText_1.split("");
 
   loaderTextArray_1.forEach((element) => {
@@ -76,7 +77,8 @@ const loaderTextLogic = () => {
     loaderTitlePlace_1.appendChild(loaderTextSpan_1);
   });
 
-  let loaderText_2 = "THE LUXURIOUS MARKETPLACE";
+  // let loaderText_2 = "THE LUXURIOUS MARKETPLACE";
+  let loaderText_2 = "The Luxurious Marketplace";
   let loaderTextArray_2 = loaderText_2.split("");
 
   loaderTextArray_2.forEach((element) => {
