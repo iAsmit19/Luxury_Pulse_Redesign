@@ -1,3 +1,5 @@
+/* @import url(../stylesheets/loader.css); */
+
 @font-face {
   font-family: "cinzel";
   src: url(../assets/fonts/cinzel/Cinzel-VariableFont_wght.ttf);
@@ -9,16 +11,30 @@
 }
 
 @font-face {
-  font-family: inter;
+  font-family: "inter";
   src: url(../assets/fonts/inter/Inter-VariableFont_slnt\,wght.ttf);
 }
 
 :root {
+  /* Root */
+  --root-transition: all ease-in-out 300ms;
+  --inline-padding: 7vw;
+  /* Loader */
   --loader: #000003;
   --loader-font: #f7f7f7;
   --stars: #ffffff;
   --background: #000000;
   --font: #ffffff;
+  /* Header */
+  --header-border: #171717;
+  --header-bg: #00000070;
+  --header-text: #afafaf;
+  --header-text-hover: #fff;
+  --header-font-size: 15px;
+  --header-font: "montserrat";
+  --header-input-hover: #dadada;
+  --header-input-font-size: 14px;
+  --header-button-hover: #171717;
 }
 
 * {
@@ -29,125 +45,11 @@
 
 html,
 body {
-  font-family: "cinzel";
   position: relative;
-}
-
-.loader {
-  background-color: var(--loader);
-  color: var(--loader-font);
-  height: 100vh;
-  width: 100vw;
-  position: fixed;
-  user-select: none;
-  overflow: hidden;
-}
-
-.loader-housing {
-  height: 100%;
-  width: 100%;
-  position: relative;
-}
-
-.loader-content {
-  font-family: "montserrat";
-  letter-spacing: 3px;
-  font-weight: 100;
-  font-size: 0.8rem;
-}
-
-.loader-background {
-  background-color: var(--loader);
-  height: 100vh;
-  width: 100vw;
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.stars-container {
-  height: 100%;
-  width: 100%;
-  position: absolute;
-  margin: auto;
-  overflow: hidden;
-}
-
-.star {
-  border-radius: 50%;
-  background-color: var(--stars);
-  height: 1px;
-  width: 1px;
-  position: absolute;
-  opacity: 0;
-}
-
-.shooting-star {
-  background-color: var(--stars);
-  height: 20px;
-  width: 1px;
-  position: absolute;
-  opacity: 0;
-  transform: rotate(315deg);
-}
-
-.star-1 {
-  top: 0;
-  left: 20%;
-}
-
-.star-2 {
-  top: 0;
-  left: 5%;
-}
-
-.star-3 {
-  top: 0;
-  left: 50%;
-}
-
-.star-4 {
-  top: 0;
-  left: 80%;
-}
-
-.star-5 {
-  top: 0;
-  left: 35%;
-}
-
-.loader-content {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 5;
-}
-
-.loader-text {
-  position: absolute;
-}
-
-.loader-text-span-1 {
-  opacity: 0;
-  filter: blur(5px);
-}
-
-.loader-text-span-2 {
-  opacity: 0;
-  filter: blur(5px);
-}
-
-.loader-text-span-3 {
-  opacity: 0;
-  filter: blur(5px);
 }
 
 .root {
   background-color: var(--background);
   color: var(--font);
-  min-height: 100vh;
+  min-height: 200vh;
 }

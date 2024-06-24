@@ -40,6 +40,8 @@
     />
     <!-- StyleSheets -->
     <link rel="stylesheet" href="./Source/stylesheets/main-frame.css" />
+    <link rel="stylesheet" href="./Source/stylesheets/loader.css" />
+    <link rel="stylesheet" href="./Source/stylesheets/header.css" />
   </head>
   <body>
     <div class="loader">
@@ -62,7 +64,79 @@
     </div>
 
     <div class="root">
-      hello
+      <header>
+        <div class="header-housing">
+          <div class="header-logo">
+            <div class="header-logo-housing">
+              <img
+                draggable="false"
+                id="header-logo"
+                src="./Source/assets/images/logo/version-1/luxury-pulse-logo-white.svg"
+                alt="Luxury Pulse"
+              />
+            </div>
+          </div>
+
+          <div class="header-content">
+            <div class="header-content-housing">
+              <div class="navbar">
+                <nav>
+                  <a href="javascript:void(0)">Buy</a>
+                  <a href="javascript:void(0)">Sell</a>
+                  <a href="javascript:void(0)">News</a>
+                  <a href="javascript:void(0)">About</a>
+                </nav>
+              </div>
+
+              <div class="header-search-unit">
+                <div class="header-search-unit-housing">
+                  <div class="edge-separator-container">
+                    <img
+                      draggable="false"
+                      src="./Source/assets/icons/icons-search-unit/edge-separator.svg"
+                      alt="|"
+                    />
+                  </div>
+
+                  <div class="input-container">
+                    <input
+                      id="input"
+                      type="text"
+                      placeholder="Search for Watches"
+                    />
+                  </div>
+
+                  <div class="mid-separator-container">
+                    <img
+                      draggable="false"
+                      src="./Source/assets/icons/icons-search-unit/middle-separator.svg"
+                      alt="|"
+                    />
+                  </div>
+
+                  <div class="search-button-container">
+                    <button id="search-button">
+                      <img
+                        draggable="false"
+                        src="./Source/assets/icons/icons-search-unit/search icon.svg"
+                        alt="Enter"
+                      />
+                    </button>
+                  </div>
+
+                  <div class="edge-separator-container">
+                    <img
+                      draggable="false"
+                      src="./Source/assets/icons/icons-search-unit/edge-separator.svg"
+                      alt="|"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
     </div>
 
     <!-- Scripts -->

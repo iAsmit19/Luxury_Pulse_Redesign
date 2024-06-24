@@ -1,0 +1,117 @@
+@import url(../stylesheets/main-frame.css);
+
+.loader {
+  background-color: var(--loader);
+  color: var(--loader-font);
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  user-select: none;
+  overflow: hidden;
+  
+  /* Uncomment to disable Loader */
+  display: none;
+}
+
+.loader-housing {
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.loader-content {
+  font-family: "montserrat";
+  letter-spacing: 3px;
+  font-weight: 100;
+  font-size: 0.8rem;
+}
+
+.loader-background {
+  background-color: var(--loader);
+  height: 100vh;
+  width: 100vw;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.stars-container {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  margin: auto;
+  overflow: hidden;
+}
+
+.star {
+  border-radius: 50%;
+  background-color: var(--stars);
+  height: 1px;
+  width: 1px;
+  position: absolute;
+  opacity: 0;
+}
+
+.shooting-star {
+  background-color: var(--stars);
+  height: 20px;
+  width: 1px;
+  position: absolute;
+  opacity: 0;
+  transform: rotate(315deg);
+}
+
+.star-1 {
+  top: 0;
+  left: 20%;
+}
+
+.star-2 {
+  top: 0;
+  left: 5%;
+}
+
+.star-3 {
+  top: 0;
+  left: 50%;
+}
+
+.star-4 {
+  top: 0;
+  left: 80%;
+}
+
+.star-5 {
+  top: 0;
+  left: 35%;
+}
+
+.loader-content {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 5;
+}
+
+.loader-text {
+  position: absolute;
+}
+
+.loader-text-span-1 {
+  opacity: 0;
+  filter: blur(5px);
+}
+
+.loader-text-span-2 {
+  opacity: 0;
+  filter: blur(5px);
+}
+
+.loader-text-span-3 {
+  opacity: 0;
+  filter: blur(5px);
+}
