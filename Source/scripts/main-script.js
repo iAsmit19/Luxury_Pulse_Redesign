@@ -1,3 +1,6 @@
+// Cursor
+const cursor = document.querySelector(".cursor");
+
 // Loader
 const loader = document.querySelector(".loader");
 const starContainer = document.querySelector(".stars-container");
@@ -9,6 +12,27 @@ const loaderTitlePlace_3 = document.querySelector(".loader-title-3");
 
 // Root
 const root = document.querySelector(".root");
+
+const theCursor = () => {
+  gsap.to(cursor, {
+    rotate: 360,
+    duration: 2.5,
+    repeat: -1,
+    ease: "linear",
+  });
+  document.addEventListener("mousemove", (event) => {
+    gsap.to(cursor, {
+      display: "block",
+      // top: 0,
+      left: 0
+    })
+    gsap.to(cursor, {
+      x: event.pageX,
+      y: event.pageY,
+      ease: "linear",
+    });
+  });
+};
 
 const starsLogic = () => {
   const star = document.createElement("div");
@@ -167,6 +191,7 @@ const theLoader = () => {
 
 const EXECUTIONER = () => {
   theLoader();
+  theCursor();
 };
 
 EXECUTIONER();

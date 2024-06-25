@@ -17,8 +17,12 @@
 
 :root {
   /* Root */
+  --scrollbar-bg: #080808;
+  --scroll-thumb-bg: #858585;
   --root-transition: all ease-in-out 300ms;
   --inline-padding: 7vw;
+  /* Cursor */
+  --cursor-size: 15px;
   /* Loader */
   --loader: #000003;
   --loader-font: #f7f7f7;
@@ -41,11 +45,44 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* cursor: none; */
 }
 
 html,
 body {
   position: relative;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+  background-color: var(--scrollbar-bg);
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--scroll-thumb-bg);
+}
+
+.cursor {
+  /* background-color: white; */
+  height: var(--cursor-size);
+  width: var(--cursor-size);
+  position: absolute;
+  /* top: 50%; */
+  left: 50%;
+  display: none;
+  pointer-events: none;
+  z-index: 999999;
+}
+
+.cursor img {
+  height: 100%;
+  width: 100%;
+}
+
+.cursor svg {
+  height: 100%;
+  width: 100%;
 }
 
 .root {
