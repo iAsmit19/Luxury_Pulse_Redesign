@@ -177,6 +177,7 @@ const loaderAnimation = () => {
   timeline.to(loader, {
     // y: "-200%",
     opacity: 0,
+    display: "none",
     duration: 2,
     ease: "power4.inOut",
   });

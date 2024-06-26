@@ -52,6 +52,9 @@ html,
 body {
   position: relative;
   overflow-x: hidden;
+
+  /* Uncomment to disable Loader */
+  overflow-y: hidden;
 }
 
 ::-webkit-scrollbar {
@@ -89,4 +92,7 @@ body {
   background-color: var(--background);
   color: var(--font);
   min-height: 200vh;
+
+  /* Uncomment to disable Loader */
+  /* opacity: 0; */
 }
