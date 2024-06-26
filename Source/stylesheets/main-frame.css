@@ -37,7 +37,7 @@
   --header-font-size: 15px;
   --header-font: "montserrat";
   --header-input-hover: #dadada;
-  --header-input-font-size: 14px;
+  --header-input-font-size: 13px;
   --header-button-hover: #171717;
 }
 
@@ -53,7 +53,7 @@ body {
   position: relative;
   overflow-x: hidden;
 
-  /* Uncomment to disable Loader */
+  /* Comment to disable Loader */
   overflow-y: hidden;
 }
 

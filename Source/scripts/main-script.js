@@ -191,8 +191,8 @@ const theLoader = () => {
 };
 
 const EXECUTIONER = () => {
-  theLoader();
   theCursor();
+  theLoader();
 };
 
 EXECUTIONER();
