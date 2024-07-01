@@ -19,6 +19,7 @@ const atNavSell = document.querySelector(".nav-sell");
 const atNavNews = document.querySelector(".nav-news");
 const atNavAbout = document.querySelector(".nav-about");
 const navPos = -3;
+const navElements = document.querySelectorAll(".nav-el");
 
 const theCursor = () => {
   // gsap.to(cursor, {
@@ -36,9 +37,7 @@ const theCursor = () => {
     gsap.to(cursor, {
       x: event.pageX,
       y: event.pageY,
-      ease: "linear",
     });
-    
   });
 };
 
@@ -297,8 +296,29 @@ const navElementsAnimation = () => {
   navElementLogic();
 };
 
+const cursorOnNavElmenets = () => {
+  navElements.forEach((element) => {
+    element.addEventListener("mouseover", () => {
+      gsap.to(cursor, {
+        scale: 0.5,
+        ease: "linear",
+      });
+    });
+  });
+
+  navElements.forEach((element) => {
+    element.addEventListener("mouseleave", () => {
+      gsap.to(cursor, {
+        scale: 1,
+        ease: "linear",
+      });
+    });
+  });
+};
+
 const theHeader = () => {
   navElementsAnimation();
+  cursorOnNavElmenets();
 };
 
 const EXECUTIONER = () => {
