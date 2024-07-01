@@ -22,7 +22,7 @@
   --root-transition: all ease-in-out 300ms;
   --inline-padding: 7vw;
   /* Cursor */
-  --cursor-size: 20px;
+  --cursor-size: 15px;
   /* Loader */
   --loader: #000003;
   --loader-font: #f7f7f7;
@@ -54,7 +54,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  cursor: none;
+  /* cursor: none; */
 }
 
 html,
