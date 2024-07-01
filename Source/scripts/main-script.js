@@ -21,12 +21,12 @@ const atNavAbout = document.querySelector(".nav-about");
 const navPos = -3;
 
 const theCursor = () => {
-  gsap.to(cursor, {
-    rotate: 360,
-    duration: 2.5,
-    repeat: -1,
-    ease: "linear",
-  });
+  // gsap.to(cursor, {
+  //   rotate: 360,
+  //   duration: 2.5,
+  //   repeat: -1,
+  //   ease: "linear",
+  // });
   document.addEventListener("mousemove", (event) => {
     gsap.to(cursor, {
       display: "block",
@@ -38,6 +38,7 @@ const theCursor = () => {
       y: event.pageY,
       ease: "linear",
     });
+    
   });
 };
 
@@ -302,7 +303,7 @@ const theHeader = () => {
 
 const EXECUTIONER = () => {
   theCursor();
-  theLoader();
+  // theLoader();
   theHeader();
 };
 

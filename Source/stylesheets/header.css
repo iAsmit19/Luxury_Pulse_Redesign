@@ -5,9 +5,13 @@ header {
   background-color: var(--header-bg);
   height: 7vh;
   width: 100%;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.37);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   padding-inline: var(--inline-padding);
   position: fixed;
   user-select: none;
+  z-index: 9999;
 }
 
 .header-housing {
@@ -122,6 +126,7 @@ nav a:hover:before {
 }
 
 #input::placeholder {
+  color: var(--header-text);
   transition: var(--root-transition);
 }
 
@@ -129,10 +134,6 @@ nav a:hover:before {
   outline: none;
   border: none;
 }
-
-/* #input:hover::placeholder {
-  color: var(--header-input-hover);
-} */
 
 #input:focus::placeholder {
   color: var(--header-input-hover);
@@ -150,7 +151,7 @@ nav a:hover:before {
 }
 
 #search-button:hover {
-    background-color: var(--header-button-hover);
+  background-color: var(--header-button-hover);
 }
 
 #search-button img {

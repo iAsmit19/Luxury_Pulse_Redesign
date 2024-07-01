@@ -12,17 +12,17 @@
 
 @font-face {
   font-family: "inter";
-  src: url(../assets/fonts/inter/Inter-VariableFont_slnt\,wght.ttf);
+  src: url(../assets/fonts/inter/Inter-VariableFont_slnt\wght.ttf);
 }
 
 :root {
   /* Root */
   --scrollbar-bg: #080808;
-  --scroll-thumb-bg: #858585;
+  --scroll-thumb-bg: #9d9d9d;
   --root-transition: all ease-in-out 300ms;
   --inline-padding: 7vw;
   /* Cursor */
-  --cursor-size: 10px;
+  --cursor-size: 15px;
   /* Loader */
   --loader: #000003;
   --loader-font: #f7f7f7;
@@ -30,9 +30,9 @@
   --background: #000000;
   --font: #ffffff;
   /* Header */
-  --header-border: #171717;
-  --header-bg: #00000070;
-  --header-text: #c9c9c9;
+  --header-border: #59595933;
+  --header-bg: #040404b4;
+  --header-text: #aeaeae;
   --header-text-hover: #fff;
   --header-font-size: 16px;
   --header-font: "montserrat";
@@ -40,6 +40,14 @@
   --header-input-font-size: 14px;
   --header-button-size: 16px;
   --header-button-hover: #171717;
+  /* Hero */
+  --hero-sub-indentation: 25px;
+  --hero-sub-text: #ababab;
+  --hero-heading-text: #ffffff;
+  --hero-cta-bg: #303030a9;
+  --hero-cta-text: #e4e4e4;
+  --hero-cta-size: 16px;
+  --hero-cta-text-size: 16px;
 }
 
 * {
@@ -92,5 +100,5 @@ body {
 .root {
   background-color: var(--background);
   color: var(--font);
-  min-height: 100vh;
+  min-height: 200vh;
 }

@@ -1,7 +1,64 @@
 @import url(../stylesheets/main-frame.css);
 
 .hero-section {
-    background-color: #2a2a2a;
-    height: 80vh;
-    width: 100%;
+  height: 80vh;
+  width: 100%;
+}
+
+.hero-section-housing {
+  background: url(../assets/images/backgrounds/background-4.jpg);
+  background-size: cover;
+  background-position: center center;
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+
+.hero-content {
+  background-color: #1a1a1a4e;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+
+.hero-content-housing {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 13px;
+  padding-inline: var(--inline-padding);
+}
+
+#hero-sub-heading {
+  color: var(--hero-sub-text);
+  font-size: 32px;
+  font-family: "cinzel";
+  font-weight: 300;
+  padding-inline: var(--hero-sub-indentation);
+}
+
+#hero-heading {
+  color: var(--hero-heading-text);
+  font-size: 60px;
+  font-family: "montserrat";
+  font-weight: 500;
+  line-height: 70px;
+}
+
+#hero-cta-button {
+  border: none;
+  border-radius: 6px;
+  background: var(--hero-cta-bg);
+  color: var(--hero-cta-text);
+  padding: 16px 20px;
+  margin-inline: var(--hero-sub-indentation);
+  font-size: var(--hero-cta-text-size);
+  font-family: 'montserrat';
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  user-select: none;
+  cursor: pointer;
 }
