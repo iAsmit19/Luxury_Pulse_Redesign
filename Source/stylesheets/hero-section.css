@@ -1,0 +1,7 @@
+@import url(../stylesheets/main-frame.css);
+
+.hero-section {
+    background-color: #2a2a2a;
+    height: 80vh;
+    width: 100%;
+}

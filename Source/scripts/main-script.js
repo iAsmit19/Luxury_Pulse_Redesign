@@ -13,6 +13,13 @@ const loaderTitlePlace_3 = document.querySelector(".loader-title-3");
 // Root
 const root = document.querySelector(".root");
 
+// Header
+const atNavBuy = document.querySelector(".nav-buy");
+const atNavSell = document.querySelector(".nav-sell");
+const atNavNews = document.querySelector(".nav-news");
+const atNavAbout = document.querySelector(".nav-about");
+const navPos = -3;
+
 const theCursor = () => {
   gsap.to(cursor, {
     rotate: 360,
@@ -24,8 +31,8 @@ const theCursor = () => {
     gsap.to(cursor, {
       display: "block",
       // top: 0,
-      left: 0
-    })
+      left: 0,
+    });
     gsap.to(cursor, {
       x: event.pageX,
       y: event.pageY,
@@ -190,9 +197,113 @@ const theLoader = () => {
   loaderAnimation();
 };
 
+const navBuySeparator = () => {
+  let navBuyText = "Buy";
+  let navBuySplit = navBuyText.split("");
+
+  navBuySplit.forEach((element) => {
+    let navBuySpan = document.createElement("span");
+    navBuySpan.innerHTML = element;
+    navBuySpan.classList.add("nav-buy-span");
+    navBuySpan.classList.add("nav-span");
+    atNavBuy.appendChild(navBuySpan);
+  });
+};
+
+const navSellSeparator = () => {
+  let navSellText = "Sell";
+  let navSellSplit = navSellText.split("");
+
+  navSellSplit.forEach((element) => {
+    let navSellSpan = document.createElement("span");
+    navSellSpan.innerHTML = element;
+    navSellSpan.classList.add("nav-sell-span");
+    navSellSpan.classList.add("nav-span");
+    atNavSell.appendChild(navSellSpan);
+  });
+};
+
+const navNewsSeparator = () => {
+  let navNewsText = "News";
+  let navNewsSplit = navNewsText.split("");
+
+  navNewsSplit.forEach((element) => {
+    let navNewsSpan = document.createElement("span");
+    navNewsSpan.innerHTML = element;
+    navNewsSpan.classList.add("nav-news-span");
+    navNewsSpan.classList.add("nav-span");
+    atNavNews.appendChild(navNewsSpan);
+  });
+};
+
+const navAboutSeparator = () => {
+  let navAboutText = "About";
+  let navAboutSplit = navAboutText.split("");
+
+  navAboutSplit.forEach((element) => {
+    let navAboutSpan = document.createElement("span");
+    navAboutSpan.innerHTML = element;
+    navAboutSpan.classList.add("nav-about-span");
+    navAboutSpan.classList.add("nav-span");
+    atNavAbout.appendChild(navAboutSpan);
+  });
+};
+
+const characterSeparator = () => {
+  navBuySeparator();
+  navSellSeparator();
+  navNewsSeparator();
+  navAboutSeparator();
+};
+
+const navBuyAnimation = (element) => {
+  element.addEventListener("mouseenter", () => {
+    gsap.to(element, {
+      y: navPos,
+    });
+  });
+  element.addEventListener("mouseleave", () => {
+    gsap.to(element, {
+      y: 0,
+    });
+  });
+};
+
+const navElementLogic = () => {
+  const navBuySpans = document.querySelectorAll(".nav-buy-span");
+  navBuySpans.forEach((element) => {
+    navBuyAnimation(element);
+  });
+
+  const navSellSpans = document.querySelectorAll(".nav-sell-span");
+  navSellSpans.forEach((element) => {
+    navBuyAnimation(element);
+  });
+
+  const navNewsSpans = document.querySelectorAll(".nav-news-span");
+  navNewsSpans.forEach((element) => {
+    navBuyAnimation(element);
+  });
+
+  const navAboutSpans = document.querySelectorAll(".nav-about-span");
+  navAboutSpans.forEach((element) => {
+    navBuyAnimation(element);
+  });
+};
+
+const navElementsAnimation = () => {
+  characterSeparator();
+  navElementLogic();
+};
+
+const theHeader = () => {
+  navElementsAnimation();
+};
+
 const EXECUTIONER = () => {
   theCursor();
   theLoader();
+  theHeader();
 };
 
 EXECUTIONER();

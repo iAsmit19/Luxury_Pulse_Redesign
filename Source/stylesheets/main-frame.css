@@ -22,7 +22,7 @@
   --root-transition: all ease-in-out 300ms;
   --inline-padding: 7vw;
   /* Cursor */
-  --cursor-size: 15px;
+  --cursor-size: 10px;
   /* Loader */
   --loader: #000003;
   --loader-font: #f7f7f7;
@@ -32,12 +32,13 @@
   /* Header */
   --header-border: #171717;
   --header-bg: #00000070;
-  --header-text: #afafaf;
+  --header-text: #c9c9c9;
   --header-text-hover: #fff;
-  --header-font-size: 15px;
+  --header-font-size: 16px;
   --header-font: "montserrat";
   --header-input-hover: #dadada;
-  --header-input-font-size: 13px;
+  --header-input-font-size: 14px;
+  --header-button-size: 16px;
   --header-button-hover: #171717;
 }
 
@@ -54,7 +55,7 @@ body {
   overflow-x: hidden;
 
   /* Comment to disable Loader */
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 ::-webkit-scrollbar {
@@ -91,8 +92,5 @@ body {
 .root {
   background-color: var(--background);
   color: var(--font);
-  min-height: 200vh;
-
-  /* Uncomment to disable Loader */
-  /* opacity: 0; */
+  min-height: 100vh;
 }
