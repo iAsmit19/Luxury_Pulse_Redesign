@@ -45,20 +45,53 @@
   font-size: 60px;
   font-family: "montserrat";
   font-weight: 500;
-  line-height: 70px;
+  line-height: 65px;
 }
 
-#hero-cta-button {
+.cta-button-wrapper {
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   background: var(--hero-cta-bg);
   color: var(--hero-cta-text);
-  padding: 16px 20px;
+  height: 50px;
+  width: 200px;
+  position: relative;
   margin-inline: var(--hero-sub-indentation);
-  font-size: var(--hero-cta-text-size);
-  font-family: 'montserrat';
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  overflow: hidden;
   user-select: none;
-  cursor: pointer;
+}
+
+#cta-button {
+  color: var(--hero-cta-text);
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+#cta-text {
+  font-family: "montserrat";
+  font-size: var(--hero-cta-text-size);
+  z-index: 3;
+}
+
+#cta-mover {
+  border-radius: 100%;
+  background: var(--hero-cta-mover-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 10px;
+  width: 10px;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 2;
 }

@@ -46,8 +46,9 @@
   --hero-heading-text: #ffffff;
   --hero-cta-bg: #303030a9;
   --hero-cta-text: #e4e4e4;
-  --hero-cta-size: 16px;
-  --hero-cta-text-size: 16px;
+  --hero-cta-size: 14px;
+  --hero-cta-text-size: 14px;
+  --hero-cta-mover-bg: #000000bd;
 }
 
 * {

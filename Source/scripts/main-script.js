@@ -321,10 +321,75 @@ const theHeader = () => {
   cursorOnNavElmenets();
 };
 
+const ctaButtonWrapper = document.querySelector(".cta-button-wrapper");
+const ctaButtonText = document.querySelector("#cta-text");
+const ctaButtonMover = document.querySelector("#cta-mover");
+
+
+const heroButtonLogic = () => {
+  ctaButtonWrapper.addEventListener("mouseenter", () => {
+    gsap.to(ctaButtonMover, {
+      opacity: 1,
+      scale: 30,
+      ease: "back.in(0.5)",
+      // onComplete: () => {
+      //   gsap.to(ctaButtonText, {
+      //     color: "black",
+      //   });
+      // },
+    });
+  });
+
+  ctaButtonWrapper.addEventListener("mouseleave", () => {
+    gsap.to(ctaButtonMover, {
+      opacity: 0,
+      scale: 1,
+      ease: "back.in(0.7)",
+      // onComplete: () => {
+      //   gsap.to(ctaButtonText, {
+      //     color: "white",
+      //   });
+      // },
+    });
+  });
+
+  ctaButtonWrapper.addEventListener("mousemove", event => {
+    let ctaRect = ctaButtonWrapper.getBoundingClientRect();
+    gsap.to(ctaButtonMover, {
+      x: event.clientX - ctaRect.left - ctaButtonMover.offsetWidth / 2,
+      y: event.clientY - ctaRect.top - ctaButtonMover.offsetHeight / 2,
+      ease: "back.out(1)"
+    });
+  });
+};
+
+const cursorOnCTAButton = () => {
+  ctaButtonWrapper.addEventListener("mouseover", () => {
+    gsap.to(cursor, {
+      scale: 3,
+      opacity: 0.1,
+      ease: "linear",
+    });
+  });
+  ctaButtonWrapper.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      scale: 1,
+      opacity: 1,
+      ease: "linear",
+    });
+  })
+};
+
+const theHeroSection = () => {
+  heroButtonLogic();
+  cursorOnCTAButton();
+};
+
 const EXECUTIONER = () => {
   theCursor();
   // theLoader();
   theHeader();
+  theHeroSection();
 };
 
 EXECUTIONER();

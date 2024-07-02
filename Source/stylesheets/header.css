@@ -145,8 +145,8 @@ nav a:hover:before {
   border-radius: 5px;
   background-color: transparent;
   cursor: pointer;
-  padding: 5px;
-  padding-inline: 7px;
+  padding: 7px;
+  padding-inline: 10px;
   overflow: hidden;
   transition: var(--root-transition);
 }

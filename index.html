@@ -105,10 +105,10 @@
             <div class="header-content-housing">
               <div class="navbar">
                 <nav>
-                  <a class="nav-el nav-buy" href="javascript:void(0)"></a>
-                  <a class="nav-el nav-sell" href="javascript:void(0)"></a>
-                  <a class="nav-el nav-news" href="javascript:void(0)"></a>
-                  <a class="nav-el nav-about" href="javascript:void(0)"></a>
+                  <a class="nav-el nav-buy" href="javascript:void(0)" draggable="false"></a>
+                  <a class="nav-el nav-sell" href="javascript:void(0)" draggable="false"></a>
+                  <a class="nav-el nav-news" href="javascript:void(0)" draggable="false"></a>
+                  <a class="nav-el nav-about" href="javascript:void(0)" draggable="false"></a>
                 </nav>
               </div>
 
@@ -170,12 +170,14 @@
             <div class="hero-content">
               <div class="hero-content-housing">
                 <h2 id="hero-sub-heading">Luxury Pulse</h2>
-                <h1 id="hero-heading">The Opulent Emporium: <br> Rare and Regal Selections</h1>
-                <button id="hero-cta-button">Peruse our Collection</button>
-                
-                <div class="hero-cta-button">
-                  <a class="cta-button">
-
+                <h1 id="hero-heading">
+                  The Opulent Emporium: <br />
+                  Rare and Regal Selections
+                </h1>
+                <div class="cta-button-wrapper">
+                  <a id="cta-button" href="javascript:void(0)" draggable="false">
+                    <p id="cta-text">Peruse our Collection</p>
+                    <span id="cta-mover"></span>
                   </a>
                 </div>
               </div>
