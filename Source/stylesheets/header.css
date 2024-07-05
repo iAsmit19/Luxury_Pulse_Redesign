@@ -6,12 +6,18 @@ header {
   height: 7vh;
   width: 100%;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.37);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
   padding-inline: var(--inline-padding);
   position: fixed;
   user-select: none;
   z-index: 9999;
+
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  -o-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
 }
 
 .header-housing {
@@ -38,7 +44,7 @@ header {
 }
 
 #header-logo {
-  width: 150px;
+  width: 160px;
 }
 
 .header-content {
@@ -72,12 +78,12 @@ nav a {
   color: var(--header-text);
   padding: 0 5px;
   text-decoration: none;
-  font-family: var(--header-font);
+  font-family: var(--header-font-family);
   /* letter-spacing: 0.8px; */
   font-weight: 500;
-  font-size: var(--header-font-size);
+  font-size: var(--header-font);
   position: relative;
-  transition: var(--root-transition);
+  transition: var(--global-transition);
 }
 
 nav a:hover {
@@ -92,7 +98,7 @@ nav a:before {
   position: absolute;
   top: 100%;
   left: 0;
-  transition: var(--root-transition);
+  transition: var(--global-transition);
 }
 
 nav a:hover:before {
@@ -117,27 +123,37 @@ nav a:hover:before {
   align-items: center;
 }
 
-#input {
+.input-container {
+  position: relative;
+}
+
+#header-input {
   border: none;
   background-color: transparent;
   color: var(--header-input-hover);
-  font-family: var(--header-font);
-  font-size: var(--header-input-font-size);
-  transition: var(--root-transition);
+  font-family: var(--header-font-family);
+  font-size: var(--header-input-font);
+  transition: var(--global-transition);
 }
 
-#input::placeholder {
+#header-input::placeholder {
   color: var(--header-text);
-  transition: var(--root-transition);
+  transition: var(--global-transition);
 }
 
-#input:focus {
+#header-input:focus {
   outline: none;
   border: none;
 }
 
-#input:focus::placeholder {
+#header-input:focus::placeholder {
   color: var(--header-input-hover);
+}
+
+#input-shortcut {
+  border-radius: 5px;
+  position: relative;
+  padding: 4px 7px;
 }
 
 #search-button {
@@ -146,13 +162,14 @@ nav a:hover:before {
   background-color: transparent;
   cursor: pointer;
   padding: 7px;
-  padding-inline: 10px;
+  /* padding-inline: 10px; */
   overflow: hidden;
-  transition: var(--root-transition);
+  transition: var(--global-transition);
 }
 
 #search-button:hover {
   background-color: var(--header-button-hover);
+  box-shadow: 0px 0px 10px 0px #080808;
 }
 
 #search-button img {

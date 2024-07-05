@@ -20,6 +20,19 @@ const atNavNews = document.querySelector(".nav-news");
 const atNavAbout = document.querySelector(".nav-about");
 const navPos = -3;
 const navElements = document.querySelectorAll(".nav-el");
+// const headerInput = document.querySelector("#header-input");
+// let placeholder = ["Cars", "Real Estate", "Watches", "Yachts", "Jets"];
+// let [cars, realestate, watches, yachts, jets] = placeholder;
+
+// Hero Section
+const ctaButtonWrapper = document.querySelector(".cta-button-wrapper");
+const ctaButtonText = document.querySelector("#cta-text");
+const ctaButtonMover = document.querySelector("#cta-mover");
+
+// Locomotive Scroll [Smooth]
+(function () {
+  const locomotiveScroll = new LocomotiveScroll();
+})();
 
 const theCursor = () => {
   // gsap.to(cursor, {
@@ -316,15 +329,99 @@ const cursorOnNavElmenets = () => {
   });
 };
 
+const headerInput = document.querySelector("#header-input");
+const placeholders = ["Cars", "Real Estate", "Watches", "Yachts", "Jets"];
+
+const typeEffect = (text) => {
+  const chars = text.split("");
+  const tl = gsap.timeline();
+
+  chars.forEach((char) => {
+    tl.to(headerInput, {
+      duration: 0.2,
+      opacity: 1,
+      ease: "power1.inOut",
+      onStart: () => {
+        headerInput.placeholder += char;
+      },
+    });
+  });
+
+  return tl;
+};
+
+const eraseEffect = (text) => {
+  const chars = text.split("");
+  const tl = gsap.timeline();
+
+  chars.forEach(() => {
+    tl.to(headerInput, {
+      duration: 0.05,
+      opacity: 1,
+      ease: "power1.inOut",
+      onStart: () => {
+        headerInput.placeholder = headerInput.placeholder.slice(0, -1);
+      },
+    });
+  });
+
+  return tl;
+};
+
+const cyclePlaceholders = () => {
+  const masterTl = gsap.timeline({ repeat: -1, repeatDelay: 1 });
+
+  placeholders.forEach((placeholder) => {
+    masterTl
+      .add(typeEffect(placeholder))
+      .to(headerInput, { opacity: 1, duration: 1 }, "+=1") // Hold the text for a moment
+      .add(eraseEffect(placeholder));
+    // .to(headerInput, { opacity: 0, duration: 0.5 }, "+=1"); // Make sure it's completely erased before next one starts
+  });
+};
+
+const inputPlaceholderAnimation = () => {
+  cyclePlaceholders();
+};
+
+const cursorOnInput = () => {
+  headerInput.addEventListener("mouseenter", () => {
+    gsap.to(cursor, {
+      scale: 3,
+      opacity: 0.1,
+      ease: "power2.inOut",
+    });
+  });
+  headerInput.addEventListener("mouseleave", () => {
+    gsap.to(cursor, {
+      scale: 1,
+      opacity: 1,
+      ease: "power4.inOut",
+    });
+  });
+};
+
+const inputHotKeyDetector = () => {
+  document.onkeydown = (event) => {
+    if (
+      (event.ctrlKey || event.metaKey) &&
+      (event.key === "k" || event.key === "K")
+    ) {
+      event.preventDefault();
+      headerInput.focus();
+    } else if (event.key === "Escape") {
+      headerInput.blur();
+    }
+  };
+};
+
 const theHeader = () => {
   navElementsAnimation();
   cursorOnNavElmenets();
+  inputPlaceholderAnimation();
+  cursorOnInput();
+  inputHotKeyDetector();
 };
-
-const ctaButtonWrapper = document.querySelector(".cta-button-wrapper");
-const ctaButtonText = document.querySelector("#cta-text");
-const ctaButtonMover = document.querySelector("#cta-mover");
-
 
 const heroButtonLogic = () => {
   ctaButtonWrapper.addEventListener("mouseenter", () => {
@@ -332,11 +429,6 @@ const heroButtonLogic = () => {
       opacity: 1,
       scale: 30,
       ease: "back.in(0.5)",
-      // onComplete: () => {
-      //   gsap.to(ctaButtonText, {
-      //     color: "black",
-      //   });
-      // },
     });
   });
 
@@ -345,20 +437,15 @@ const heroButtonLogic = () => {
       opacity: 0,
       scale: 1,
       ease: "back.in(0.7)",
-      // onComplete: () => {
-      //   gsap.to(ctaButtonText, {
-      //     color: "white",
-      //   });
-      // },
     });
   });
 
-  ctaButtonWrapper.addEventListener("mousemove", event => {
+  ctaButtonWrapper.addEventListener("mousemove", (event) => {
     let ctaRect = ctaButtonWrapper.getBoundingClientRect();
     gsap.to(ctaButtonMover, {
       x: event.clientX - ctaRect.left - ctaButtonMover.offsetWidth / 2,
       y: event.clientY - ctaRect.top - ctaButtonMover.offsetHeight / 2,
-      ease: "back.out(1)"
+      ease: "back.out(1)",
     });
   });
 };
@@ -368,16 +455,16 @@ const cursorOnCTAButton = () => {
     gsap.to(cursor, {
       scale: 3,
       opacity: 0.1,
-      ease: "linear",
+      ease: "power2.inOut",
     });
   });
   ctaButtonWrapper.addEventListener("mouseleave", () => {
     gsap.to(cursor, {
       scale: 1,
       opacity: 1,
-      ease: "linear",
+      ease: "power4.inOut",
     });
-  })
+  });
 };
 
 const theHeroSection = () => {

@@ -39,10 +39,11 @@
       href="./Source/assets/favicons/luxury-pulse-favicon-file/site.webmanifest"
     />
     <!-- StyleSheets -->
+    <link rel="stylesheet" href="./Source/stylesheets/locomotive-scroll.css" />
     <link rel="stylesheet" href="./Source/stylesheets/main-frame.css" />
     <link rel="stylesheet" href="./Source/stylesheets/loader.css" />
     <link rel="stylesheet" href="./Source/stylesheets/header.css" />
-    <link rel="stylesheet" href="./Source/stylesheets/hero-section.css" />
+    <link rel="stylesheet" href="./Source/stylesheets/main.css" />
   </head>
   <body>
     <div class="cursor">
@@ -105,10 +106,26 @@
             <div class="header-content-housing">
               <div class="navbar">
                 <nav>
-                  <a class="nav-el nav-buy" href="javascript:void(0)" draggable="false"></a>
-                  <a class="nav-el nav-sell" href="javascript:void(0)" draggable="false"></a>
-                  <a class="nav-el nav-news" href="javascript:void(0)" draggable="false"></a>
-                  <a class="nav-el nav-about" href="javascript:void(0)" draggable="false"></a>
+                  <a
+                    class="nav-el nav-buy"
+                    href="javascript:void(0)"
+                    draggable="false"
+                  ></a>
+                  <a
+                    class="nav-el nav-sell"
+                    href="javascript:void(0)"
+                    draggable="false"
+                  ></a>
+                  <a
+                    class="nav-el nav-news"
+                    href="javascript:void(0)"
+                    draggable="false"
+                  ></a>
+                  <a
+                    class="nav-el nav-about"
+                    href="javascript:void(0)"
+                    draggable="false"
+                  ></a>
                 </nav>
               </div>
 
@@ -124,10 +141,16 @@
 
                   <div class="input-container">
                     <input
-                      id="input"
+                      id="header-input"
                       type="text"
-                      placeholder="Search for Watches"
+                      placeholder="Search for "
                     />
+                    <label
+                      id="input-shortcut"
+                      class="shortcut"
+                      for="header-input"
+                      >&nbsp;Ctrl&nbsp;+&nbsp;k&nbsp;</label
+                    >
                   </div>
 
                   <div class="mid-separator-container">
@@ -165,6 +188,11 @@
         </div>
       </header>
       <main>
+        <div class="scroll-indicator">
+          <div class="scroll-indicator-housing">
+
+          </div>
+        </div>
         <div class="hero-section">
           <div class="hero-section-housing">
             <div class="hero-content">
@@ -175,8 +203,19 @@
                   Rare and Regal Selections
                 </h1>
                 <div class="cta-button-wrapper">
-                  <a id="cta-button" href="javascript:void(0)" draggable="false">
-                    <p id="cta-text">Peruse our Collection</p>
+                  <a
+                    id="cta-button"
+                    href="javascript:void(0)"
+                    draggable="false"
+                  >
+                    <p id="cta-text">
+                      Peruse our Collection
+                      <img
+                        id="cta-arrow"
+                        src="./Source/assets/icons/icon-cta-button/arrow.svg"
+                        alt=">"
+                      />
+                    </p>
                     <span id="cta-mover"></span>
                   </a>
                 </div>
@@ -188,7 +227,11 @@
     </div>
 
     <!-- Scripts -->
+    <!-- Locomotive -->
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@beta/bundled/locomotive-scroll.min.js"></script>
+    <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <!-- JavaScript File -->
     <script src="./Source/scripts/main-script.js"></script>
   </body>
 </html>

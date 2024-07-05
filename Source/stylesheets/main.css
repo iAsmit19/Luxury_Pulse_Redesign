@@ -1,5 +1,14 @@
 @import url(../stylesheets/main-frame.css);
 
+/* Main */
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+/* Hero Section */
 .hero-section {
   height: 80vh;
   width: 100%;
@@ -28,7 +37,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  gap: 13px;
   padding-inline: var(--inline-padding);
 }
 
@@ -56,6 +64,7 @@
   height: 50px;
   width: 200px;
   position: relative;
+  margin-top: 3vh;
   margin-inline: var(--hero-sub-indentation);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -77,8 +86,13 @@
 
 #cta-text {
   font-family: "montserrat";
-  font-size: var(--hero-cta-text-size);
+  font-size: var(--hero-cta-font);
   z-index: 3;
+}
+
+#cta-arrow {
+  height: 9px;
+  width: 14px;
 }
 
 #cta-mover {

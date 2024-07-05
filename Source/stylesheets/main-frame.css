@@ -16,38 +16,44 @@
 }
 
 :root {
-  /* Root */
-  --scrollbar-bg: #080808;
+  /* Global */
+  --global-transition: all ease-in-out 300ms;
+  --global-background: #000000;
+  --global-font: #ffffff;
+  /* Scroll Bar */
+  --scrollbar-bg: #242424;
   --scroll-thumb-bg: #9d9d9d;
-  --root-transition: all ease-in-out 300ms;
+  /* Site Padding (Inline) */
   --inline-padding: 7vw;
+  /* Shortcut */
+  --shortcut-text: #a8a8a8;
+  --shortcut-bg: #3636363d;
+  --shortcut-font: 11px;
+
   /* Cursor */
   --cursor-size: 15px;
   /* Loader */
-  --loader: #000003;
-  --loader-font: #f7f7f7;
+  --loader-bg: #000003;
+  --loader-text: #f7f7f7;
   --stars: #ffffff;
-  --background: #000000;
-  --font: #ffffff;
   /* Header */
   --header-border: #59595933;
   --header-bg: #040404b4;
   --header-text: #aeaeae;
   --header-text-hover: #fff;
-  --header-font-size: 16px;
-  --header-font: "montserrat";
+  --header-font: 15px;
+  --header-font-family: "montserrat";
   --header-input-hover: #dadada;
-  --header-input-font-size: 14px;
-  --header-button-size: 16px;
-  --header-button-hover: #171717;
+  --header-input-font: 13px;
+  --header-button-size: 18px;
+  --header-button-hover: #2c2c2c77;
   /* Hero */
   --hero-sub-indentation: 25px;
   --hero-sub-text: #ababab;
   --hero-heading-text: #ffffff;
   --hero-cta-bg: #303030a9;
   --hero-cta-text: #e4e4e4;
-  --hero-cta-size: 14px;
-  --hero-cta-text-size: 14px;
+  --hero-cta-font: 14px;
   --hero-cta-mover-bg: #000000bd;
 }
 
@@ -98,7 +104,16 @@ body {
 }
 
 .root {
-  background-color: var(--background);
-  color: var(--font);
+  background-color: var(--global-background);
+  color: var(--global-font);
   min-height: 200vh;
+}
+
+.shortcut {
+  background-color: var(--shortcut-bg);
+  color: var(--shortcut-text);
+  backdrop-filter: blur(10px);
+  font-family: "montserrat";
+  font-size: var(--shortcut-font);
+  white-space: nowrap;
 }

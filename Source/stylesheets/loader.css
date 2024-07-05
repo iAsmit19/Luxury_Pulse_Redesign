@@ -1,8 +1,8 @@
 @import url(../stylesheets/main-frame.css);
 
 .loader {
-  background-color: var(--loader);
-  color: var(--loader-font);
+  background-color: var(--loader-bg);
+  color: var(--loader-text);
   height: 100vh;
   width: 100vw;
   position: fixed;
@@ -28,7 +28,7 @@
 }
 
 .loader-background {
-  background-color: var(--loader);
+  background-color: var(--loader-bg);
   height: 100vh;
   width: 100vw;
   position: absolute;
