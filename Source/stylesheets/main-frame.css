@@ -26,8 +26,8 @@
   /* Site Padding (Inline) */
   --inline-padding: 7vw;
   /* Shortcut */
+  --shortcut-border: #3636367d;
   --shortcut-text: #a8a8a8;
-  --shortcut-bg: #3636363d;
   --shortcut-font: 11px;
 
   /* Cursor */
@@ -38,7 +38,7 @@
   --stars: #ffffff;
   /* Header */
   --header-border: #59595933;
-  --header-bg: #040404b4;
+  --header-bg: #0a0a0ae7;
   --header-text: #aeaeae;
   --header-text-hover: #fff;
   --header-font: 15px;
@@ -47,6 +47,15 @@
   --header-input-font: 13px;
   --header-button-size: 18px;
   --header-button-hover: #2c2c2c77;
+  /* Buy Panel */
+  --buy-panel-bg: var(--header-bg);
+  --buy-panel-text: #ffffff;
+  --buy-panel-indentation: 2vw;
+  --buy-panel-sub-heading: #999;
+  --buy-panel-heading: #fff;
+  --buy-panel-sub-text: #cacaca;
+  --buy-panel-sub-indentation: 15px;
+  --buy-panel-links: #d4d4d4;
   /* Hero */
   --hero-sub-indentation: 25px;
   --hero-sub-text: #ababab;
@@ -85,7 +94,7 @@ body {
 .cursor {
   height: var(--cursor-size);
   width: var(--cursor-size);
-  position: absolute;
+  position: fixed;
   /* top: 50%; */
   left: 50%;
   display: none;
@@ -110,7 +119,8 @@ body {
 }
 
 .shortcut {
-  background-color: var(--shortcut-bg);
+  border: 1px solid var(--shortcut-border);
+  /* background-color: var(--shortcut-bg); */
   color: var(--shortcut-text);
   backdrop-filter: blur(10px);
   font-family: "montserrat";

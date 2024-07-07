@@ -24,6 +24,17 @@ const navElements = document.querySelectorAll(".nav-el");
 // let placeholder = ["Cars", "Real Estate", "Watches", "Yachts", "Jets"];
 // let [cars, realestate, watches, yachts, jets] = placeholder;
 
+// Buy Panel
+const buyPanel = document.querySelector(".buy-nav-panel");
+const buyPanelHousing = document.querySelector(".buy-nav-panel-housing");
+let buyPanelToggle = false;
+
+// Search Panel
+const searchPanel = document.querySelector(".search-panel");
+const searchPanelHousing = document.querySelector(".search-panel-housing");
+const searchPanelContent = document.querySelector(".search-panel-content");
+let searchPanelToggle = false;
+
 // Hero Section
 const ctaButtonWrapper = document.querySelector(".cta-button-wrapper");
 const ctaButtonText = document.querySelector("#cta-text");
@@ -48,8 +59,8 @@ const theCursor = () => {
       left: 0,
     });
     gsap.to(cursor, {
-      x: event.pageX,
-      y: event.pageY,
+      x: event.clientX,
+      y: event.clientY,
     });
   });
 };
@@ -270,14 +281,17 @@ const characterSeparator = () => {
 };
 
 const navBuyAnimation = (element) => {
+  const duration = 0.3;
   element.addEventListener("mouseenter", () => {
     gsap.to(element, {
       y: navPos,
+      duration: duration,
     });
   });
   element.addEventListener("mouseleave", () => {
     gsap.to(element, {
       y: 0,
+      duration: duration,
     });
   });
 };
@@ -415,12 +429,125 @@ const inputHotKeyDetector = () => {
   };
 };
 
-const theHeader = () => {
+const navBar = () => {
   navElementsAnimation();
   cursorOnNavElmenets();
+};
+
+const searchPanelOpen = () => {
+  gsap.to(searchPanel, {
+    display: "block",
+    opacity: 1,
+    ease: "power2.inOut",
+    overwrite: true,
+  });
+  gsap.to(searchPanelHousing, {
+    height: "40%",
+    ease: "power2.inOut",
+    duration: 0.5,
+    delay: 0.2,
+    overwrite: true,
+  });
+  gsap.to(searchPanelContent, {
+    opacity: 1,
+    ease: "power2.inOut",
+    delay: 0.5,
+    overwrite: true,
+  });
+};
+
+const searchPanelClose = () => {
+  gsap.to(searchPanelContent, {
+    opacity: 0,
+    ease: "power2.inOut",
+    overwrite: true,
+  });
+  gsap.to(searchPanelHousing, {
+    height: "0",
+    ease: "power2.inOut",
+    duration: 0.5,
+    delay: 0.2,
+    overwrite: true,
+  });
+  gsap.to(searchPanel, {
+    display: "none",
+    opacity: 0,
+    ease: "power2.inOut",
+    delay: 0.5,
+    overwrite: true,
+  });
+};
+
+const searchPanelLogic = () => {
+  headerInput.addEventListener("focus", () => {
+    searchPanelToggle = true;
+    searchPanelOpen();
+    if (buyPanelToggle) {
+      buyPanelClose();
+    }
+  });
+  headerInput.addEventListener("blur", () => {
+    searchPanelToggle = false;
+    searchPanelClose();
+  });
+};
+
+const searchBar = () => {
   inputPlaceholderAnimation();
   cursorOnInput();
   inputHotKeyDetector();
+  searchPanelLogic();
+};
+
+const buyPanelOpen = () => {
+  gsap.to(buyPanel, {
+    display: "block",
+    height: "80vh",
+    ease: "power2.inOut",
+  });
+  gsap.to(buyPanelHousing, {
+    opacity: 1,
+    // display: "flex",
+    ease: "power2.in",
+    delay: 0.2,
+    overwrite: true,
+  });
+};
+
+const buyPanelClose = () => {
+  gsap.to(buyPanelHousing, {
+    // display: "none",
+    opacity: 0,
+    ease: "power2.inOut",
+  });
+  gsap.to(buyPanel, {
+    display: "none",
+    height: "0",
+    ease: "power2.out",
+    delay: 0.4,
+    overwrite: true,
+  });
+};
+
+const buyPanelLogic = () => {
+  atNavBuy.addEventListener("mouseenter", () => {
+    buyPanelOpen();
+    buyPanelToggle = true;
+    if (searchPanelToggle) {
+      searchPanelClose();
+    }
+  });
+
+  buyPanel.addEventListener("mouseleave", () => {
+    buyPanelToggle = false;
+    buyPanelClose();
+  });
+};
+
+const theHeader = () => {
+  navBar();
+  searchBar();
+  buyPanelLogic();
 };
 
 const heroButtonLogic = () => {
