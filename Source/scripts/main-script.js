@@ -1,3 +1,5 @@
+gsap.registerPlugin(ScrollTrigger);
+
 // Cursor
 const cursor = document.querySelector(".cursor");
 
@@ -20,9 +22,8 @@ const atNavNews = document.querySelector(".nav-news");
 const atNavAbout = document.querySelector(".nav-about");
 const navPos = -3;
 const navElements = document.querySelectorAll(".nav-el");
-// const headerInput = document.querySelector("#header-input");
-// let placeholder = ["Cars", "Real Estate", "Watches", "Yachts", "Jets"];
-// let [cars, realestate, watches, yachts, jets] = placeholder;
+const headerInput = document.querySelector("#header-input");
+const placeholders = ["Cars", "Real Estate", "Watches", "Yachts", "Jets"];
 
 // Buy Panel
 const buyPanel = document.querySelector(".buy-nav-panel");
@@ -46,12 +47,6 @@ const ctaButtonMover = document.querySelector("#cta-mover");
 })();
 
 const theCursor = () => {
-  // gsap.to(cursor, {
-  //   rotate: 360,
-  //   duration: 2.5,
-  //   repeat: -1,
-  //   ease: "linear",
-  // });
   document.addEventListener("mousemove", (event) => {
     gsap.to(cursor, {
       display: "block",
@@ -221,6 +216,26 @@ const theLoader = () => {
   loaderAnimation();
 };
 
+const scrollIndicator = document.querySelector(".scroll-indicator");
+const scrollIndicatorHousing = document.querySelector(
+  ".scroll-indicator-housing"
+);
+
+const theScrollIndicator = () => {
+  gsap.to(scrollIndicator, {
+    opacity: 0,
+    ease: "power4.inOut",
+    scrollTrigger: {
+      scroll: root,
+      trigger: ".scroll-indicator",
+      start: "top 55%",
+      end: "top 45%",
+      scrub: 2,
+      // markers: true,
+    },
+  });
+};
+
 const navBuySeparator = () => {
   let navBuyText = "Buy";
   let navBuySplit = navBuyText.split("");
@@ -343,9 +358,6 @@ const cursorOnNavElmenets = () => {
   });
 };
 
-const headerInput = document.querySelector("#header-input");
-const placeholders = ["Cars", "Real Estate", "Watches", "Yachts", "Jets"];
-
 const typeEffect = (text) => {
   const chars = text.split("");
   const tl = gsap.timeline();
@@ -360,7 +372,6 @@ const typeEffect = (text) => {
       },
     });
   });
-
   return tl;
 };
 
@@ -415,6 +426,8 @@ const cursorOnInput = () => {
   });
 };
 
+const searchShortcut = document.querySelector("#input-shortcut");
+
 const inputHotKeyDetector = () => {
   document.onkeydown = (event) => {
     if (
@@ -423,8 +436,14 @@ const inputHotKeyDetector = () => {
     ) {
       event.preventDefault();
       headerInput.focus();
+      gsap.to(searchShortcut, {
+        innerText: "Escape",
+      });
     } else if (event.key === "Escape") {
       headerInput.blur();
+      gsap.to(searchShortcut, {
+        innerText: "Ctrl + k",
+      });
     }
   };
 };
@@ -601,6 +620,7 @@ const theHeroSection = () => {
 
 const EXECUTIONER = () => {
   theCursor();
+  theScrollIndicator();
   // theLoader();
   theHeader();
   theHeroSection();

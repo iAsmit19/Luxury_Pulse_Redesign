@@ -82,6 +82,10 @@ body {
   /* overflow-y: hidden; */
 }
 
+body {
+  overflow: hidden;
+}
+
 ::-webkit-scrollbar {
   background-color: var(--scrollbar-bg);
   width: 7px;
@@ -123,7 +127,38 @@ body {
   /* background-color: var(--shortcut-bg); */
   color: var(--shortcut-text);
   backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   font-family: "montserrat";
   font-size: var(--shortcut-font);
   white-space: nowrap;
+}
+
+.scroll-indicator {
+  border-top-left-radius: 24px;
+  border-bottom-left-radius: 24px;
+  background-color: var(--hero-cta-bg);
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(30px);
+  height: 50px;
+  width: 240px;
+  position: fixed;
+  top: 75vh;
+  right: 0;
+  overflow: hidden;
+  user-select: none;
+  z-index: 999;
+}
+
+.scroll-indicator-housing {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1em;
+}
+
+.scroll-indicator-housing p {
+  font-family: 'cinzel';
+  font-size: 12px;
 }
