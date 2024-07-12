@@ -228,11 +228,81 @@ const theScrollIndicator = () => {
     scrollTrigger: {
       scroll: root,
       trigger: ".scroll-indicator",
-      start: "top 55%",
-      end: "top 45%",
+      start: "bottom 80%",
+      end: "bottom 70%",
       scrub: 2,
       // markers: true,
     },
+  });
+};
+
+const caseStudyLinkTab = document.querySelector(".case-study-link-tab");
+const cslIcon = document.querySelector("#cslt-main-icon");
+const csltLink = document.querySelector(".cslt-link");
+
+const cslIconAnimation = () => {
+  const iconTl = gsap.timeline({ yoyo: true, repeat: -1 });
+  iconTl.to(cslIcon, {
+    filter: "drop-shadow(0px 0px 0px #cacaca)",
+  });
+  iconTl.to(cslIcon, {
+    filter: "drop-shadow(0px 0px 1.5px #cacaca)",
+  });
+};
+
+const cslTabExpand = () => {
+  gsap.to(caseStudyLinkTab, {
+    width: "210px",
+    ease: "circ.inOut",
+    overwrite: true,
+  });
+  gsap.to(csltLink, {
+    opacity: 1,
+    delay: 0.3,
+    ease: "circ.inOut",
+    overwrite: true,
+  });
+};
+
+const cslTabContract = () => {
+  gsap.to(caseStudyLinkTab, {
+    width: "50px",
+    delay: 0.3,
+    ease: "circ.inOut",
+    overwrite: true,
+  });
+  gsap.to(csltLink, {
+    opacity: 0,
+    ease: "circ.inOut",
+    overwrite: true,
+  });
+};
+
+const csltCursorBehaviorOn = () => {
+  gsap.to(cursor, {
+    scale: 3,
+    opacity: 0.1,
+    ease: "power2.inOut",
+  });
+};
+
+const csltCursorBehaviorOff = () => {
+  gsap.to(cursor, {
+    scale: 1,
+    opacity: 1,
+    ease: "power2.inOut",
+  });
+};
+
+const theCaseStudyLinkTab = () => {
+  cslIconAnimation();
+  caseStudyLinkTab.addEventListener("mouseenter", () => {
+    cslTabExpand();
+    csltCursorBehaviorOn();
+  });
+  caseStudyLinkTab.addEventListener("mouseleave", () => {
+    cslTabContract();
+    csltCursorBehaviorOff();
   });
 };
 
@@ -621,6 +691,7 @@ const theHeroSection = () => {
 const EXECUTIONER = () => {
   theCursor();
   theScrollIndicator();
+  theCaseStudyLinkTab();
   // theLoader();
   theHeader();
   theHeroSection();

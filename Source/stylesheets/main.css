@@ -3,6 +3,7 @@
 /* Main */
 main {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -108,4 +109,18 @@ main {
   opacity: 0;
   pointer-events: none;
   z-index: 2;
+}
+
+.quick-call-strip {
+  border-bottom: 1px solid var(--header-border);
+  height: 15vh;
+  width: 100%;
+}
+
+.quick-call-strip-housing {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
