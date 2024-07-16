@@ -20,6 +20,7 @@
   --global-transition: all ease-in-out 300ms;
   --global-background: #000000;
   --global-font: #ffffff;
+  --section-headings-font: 28px;
   /* Scroll Bar */
   --scrollbar-bg: #242424;
   --scroll-thumb-bg: #9d9d9d;
@@ -66,6 +67,22 @@
   --hero-cta-text: #e4e4e4;
   --hero-cta-font: 14px;
   --hero-cta-mover-bg: #000000bd;
+  /* Monthly Section */
+  --ms-section-border: #242424;
+  --ms-section-border-hover: #404040;
+  --ms-section-bg: #101010;
+  --ms-section-sub-text: #cacaca;
+  --ms-image-filter: #00000038;
+  --ms-frame-padding: 10px;
+  --ms-content-inline-indentation: 27px;
+  --ms-sub-heading-text: #999999;
+  --ms-title-text: #e6e6e6;
+  --ms-button-border: #2e2e2e;
+  --ms-button-border-hover: #686868;
+  --ms-button-bg: #181818;
+  --ms-button-bg-hover: #131519;
+  --ms-button-text: #cacaca;
+  --ms-button-text-hover: #fff;
 }
 
 * {
@@ -121,7 +138,7 @@ body {
 .root {
   background-color: var(--global-background);
   color: var(--global-font);
-  min-height: 200vh;
+  /* min-height: 200vh; */
 }
 
 .shortcut {
@@ -236,6 +253,7 @@ body {
   transform: translateX(-50%);
   overflow: hidden;
   cursor: pointer;
+  user-select: none;
   z-index: 999;
 }
 
@@ -276,21 +294,16 @@ body {
 .cslt-link a {
   color: var(--buy-panel-sub-heading);
   text-decoration: none;
-  font-family: 'montserrat';
+  font-family: "montserrat";
   font-size: 13px;
   position: relative;
 }
 
-.cslt-link a::before {
-  content: "";
-  background-color: #cacaca;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  height: 0.5px;
-  width: 100%;
-}
-
 #cslt-arrow {
   height: 9px;
+}
+
+.placeholder-section {
+  height: 100vh;
+  width: 100%;
 }

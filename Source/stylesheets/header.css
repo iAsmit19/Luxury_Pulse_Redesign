@@ -96,10 +96,15 @@ nav a:before {
   top: 100%;
   left: 0;
   transition: var(--global-transition);
+  cursor: pointer;
 }
 
 nav a:hover:before {
   width: 100%;
+}
+
+.nav-buy {
+  cursor: pointer;
 }
 
 .nav-span {
@@ -309,6 +314,15 @@ nav a:hover:before {
 
 .bp-click-link:hover::before {
   width: 100%;
+}
+
+.bp-v-separator {
+  opacity: 0.5;
+}
+
+.bp-h-separator {
+  opacity: 0.5;
+  display: none;
 }
 
 .bp-other-links {

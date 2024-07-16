@@ -1,4 +1,6 @@
+// GSAP Registers
 gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(Draggable);
 
 // Cursor
 const cursor = document.querySelector(".cursor");
@@ -40,6 +42,11 @@ let searchPanelToggle = false;
 const ctaButtonWrapper = document.querySelector(".cta-button-wrapper");
 const ctaButtonText = document.querySelector("#cta-text");
 const ctaButtonMover = document.querySelector("#cta-mover");
+
+// Monthly Selections Section
+const msSectionContainer = document.querySelector(".ms-card-container");
+const msSectionDrag = document.querySelector(".ms-cards-dragger");
+const maxScroll = msSectionDrag.scrollWidth - msSectionContainer.clientWidth;
 
 // Locomotive Scroll [Smooth]
 (function () {
@@ -243,10 +250,10 @@ const csltLink = document.querySelector(".cslt-link");
 const cslIconAnimation = () => {
   const iconTl = gsap.timeline({ yoyo: true, repeat: -1 });
   iconTl.to(cslIcon, {
-    filter: "drop-shadow(0px 0px 0px #cacaca)",
+    filter: "drop-shadow(0px 0px 0px #fff)",
   });
   iconTl.to(cslIcon, {
-    filter: "drop-shadow(0px 0px 1.5px #cacaca)",
+    filter: "drop-shadow(0px 0px 1.5px #fff)",
   });
 };
 
@@ -688,6 +695,71 @@ const theHeroSection = () => {
   cursorOnCTAButton();
 };
 
+const msCards = document.querySelectorAll(".ms-section-card");
+
+const monthlySectionCardAnimation = () => {
+  msCards.forEach((card) => {
+    let animation = gsap.to(card, {
+      backgroundPosition: "400% 400%",
+      duration: 30,
+      ease: "power1.inOut",
+      repeat: -1,
+      yoyo: true,
+      keyframes: [
+        { backgroundPosition: "0% 100%", duration: 7.5 },
+        { backgroundPosition: "25% 50%", duration: 7.5 },
+        { backgroundPosition: "100% 50%", duration: 7.5 },
+        { backgroundPosition: "50% 100%", duration: 7.5 },
+        { backgroundPosition: "0% 100%", duration: 7.5 },
+      ],
+    });
+    // card.addEventListener("mouseenter", () => {
+    //   animation.timeScale(3); // Speed up the animation on hover
+    // });
+
+    // card.addEventListener("mouseleave", () => {
+    //   animation.timeScale(1); // Reset the animation speed on hover out
+    // });
+
+    card.addEventListener("mouseenter", () => {
+      animation.pause();
+      gsap.to(animation, {
+        progress: 1,
+        duration: 5,
+        ease: "linear",
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      animation.pause();
+      gsap
+        .to(animation, {
+          progress: 0,
+          duration: 30,
+          ease: "power4.inOut",
+        })
+        .then(() => animation.play());
+    });
+  });
+};
+
+const monthlySelectionSectionLogic = () => {
+  Draggable.create(".ms-cards-dragger", {
+    type: "x",
+    edgeResistance: 0.9,
+    bounds: {
+      minX: -(msSectionDrag.scrollWidth - msSectionContainer.clientWidth),
+      maxX: 0,
+    },
+    throwProps: true,
+  });
+};
+
+const theMonthlySectionSection = () => {
+  monthlySelectionSectionLogic();
+  monthlySectionCardAnimation();
+};
+
 const EXECUTIONER = () => {
   theCursor();
   theScrollIndicator();
@@ -695,6 +767,7 @@ const EXECUTIONER = () => {
   // theLoader();
   theHeader();
   theHeroSection();
+  theMonthlySectionSection();
 };
 
 EXECUTIONER();
