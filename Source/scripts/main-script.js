@@ -48,6 +48,9 @@ const msSectionContainer = document.querySelector(".ms-card-container");
 const msSectionDrag = document.querySelector(".ms-cards-dragger");
 const maxScroll = msSectionDrag.scrollWidth - msSectionContainer.clientWidth;
 
+// Featured Listing Section
+const filterButton = document.querySelectorAll(".fls-filter-strip button");
+
 // Locomotive Scroll [Smooth]
 (function () {
   const locomotiveScroll = new LocomotiveScroll();
@@ -64,6 +67,22 @@ const theCursor = () => {
       x: event.clientX,
       y: event.clientY,
     });
+  });
+};
+
+const cursorOnElements = () => {
+  gsap.to(cursor, {
+    scale: 3,
+    opacity: 0.1,
+    ease: "back(2).inOut",
+  });
+};
+
+const cursorOffElements = () => {
+  gsap.to(cursor, {
+    scale: 1,
+    opacity: 1,
+    ease: "back(2).inOut",
   });
 };
 
@@ -213,6 +232,11 @@ const loaderAnimation = () => {
     display: "none",
     duration: 2,
     ease: "power4.inOut",
+    onComplete: () => {
+      gsap.to(document.querySelector("body"), {
+        height: "100%",
+      });
+    },
   });
 };
 
@@ -285,31 +309,15 @@ const cslTabContract = () => {
   });
 };
 
-const csltCursorBehaviorOn = () => {
-  gsap.to(cursor, {
-    scale: 3,
-    opacity: 0.1,
-    ease: "power2.inOut",
-  });
-};
-
-const csltCursorBehaviorOff = () => {
-  gsap.to(cursor, {
-    scale: 1,
-    opacity: 1,
-    ease: "power2.inOut",
-  });
-};
-
 const theCaseStudyLinkTab = () => {
   cslIconAnimation();
   caseStudyLinkTab.addEventListener("mouseenter", () => {
     cslTabExpand();
-    csltCursorBehaviorOn();
+    cursorOnElements();
   });
   caseStudyLinkTab.addEventListener("mouseleave", () => {
     cslTabContract();
-    csltCursorBehaviorOff();
+    cursorOffElements();
   });
 };
 
@@ -418,19 +426,13 @@ const navElementsAnimation = () => {
 const cursorOnNavElmenets = () => {
   navElements.forEach((element) => {
     element.addEventListener("mouseover", () => {
-      gsap.to(cursor, {
-        scale: 0.5,
-        ease: "linear",
-      });
+      cursorOnElements();
     });
   });
-
+  
   navElements.forEach((element) => {
     element.addEventListener("mouseleave", () => {
-      gsap.to(cursor, {
-        scale: 1,
-        ease: "linear",
-      });
+      cursorOffElements();
     });
   });
 };
@@ -488,18 +490,10 @@ const inputPlaceholderAnimation = () => {
 
 const cursorOnInput = () => {
   headerInput.addEventListener("mouseenter", () => {
-    gsap.to(cursor, {
-      scale: 3,
-      opacity: 0.1,
-      ease: "power2.inOut",
-    });
+    cursorOnElements();
   });
   headerInput.addEventListener("mouseleave", () => {
-    gsap.to(cursor, {
-      scale: 1,
-      opacity: 1,
-      ease: "power4.inOut",
-    });
+    cursorOffElements();
   });
 };
 
@@ -674,19 +668,11 @@ const heroButtonLogic = () => {
 };
 
 const cursorOnCTAButton = () => {
-  ctaButtonWrapper.addEventListener("mouseover", () => {
-    gsap.to(cursor, {
-      scale: 3,
-      opacity: 0.1,
-      ease: "power2.inOut",
-    });
+  ctaButtonWrapper.addEventListener("mouseenter", () => {
+    cursorOnElements();
   });
   ctaButtonWrapper.addEventListener("mouseleave", () => {
-    gsap.to(cursor, {
-      scale: 1,
-      opacity: 1,
-      ease: "power4.inOut",
-    });
+    cursorOffElements();
   });
 };
 
@@ -713,20 +699,12 @@ const monthlySectionCardAnimation = () => {
         { backgroundPosition: "0% 100%", duration: 7.5 },
       ],
     });
-    // card.addEventListener("mouseenter", () => {
-    //   animation.timeScale(3); // Speed up the animation on hover
-    // });
-
-    // card.addEventListener("mouseleave", () => {
-    //   animation.timeScale(1); // Reset the animation speed on hover out
-    // });
 
     card.addEventListener("mouseenter", () => {
       animation.pause();
       gsap.to(animation, {
         progress: 1,
         duration: 5,
-        ease: "linear",
       });
     });
 
@@ -736,7 +714,6 @@ const monthlySectionCardAnimation = () => {
         .to(animation, {
           progress: 0,
           duration: 30,
-          ease: "power4.inOut",
         })
         .then(() => animation.play());
     });
@@ -744,15 +721,38 @@ const monthlySectionCardAnimation = () => {
 };
 
 const monthlySelectionSectionLogic = () => {
-  Draggable.create(".ms-cards-dragger", {
-    type: "x",
-    edgeResistance: 0.9,
-    bounds: {
-      minX: -(msSectionDrag.scrollWidth - msSectionContainer.clientWidth),
-      maxX: 0,
-    },
-    throwProps: true,
-  });
+  // Draggable.create(".ms-cards-dragger", {
+  //   type: "x",
+  //   edgeResistance: 0.9,
+  //   bounds: {
+  //     minX: -(msSectionDrag.scrollWidth - msSectionContainer.clientWidth),
+  //     maxX: 0,
+  //   },
+  //   throwProps: true,
+  // });
+
+  let container = document.querySelector(".ms-card-container");
+  let input = document.querySelector(".ms-cards-dragger");
+  let msSectionCard = document.querySelector(".ms-section-card");
+  let scrollAmount = 0;
+  let scrollMin = msSectionCard.clientWidth;
+  let scrollMax = msSectionCard.clientWidth * 2;
+
+  document.querySelector(".ms-arrow-right-holder").onclick = function () {
+    container.scrollTo({
+      top: 0,
+      left: Math.max((scrollAmount += 500), scrollMax),
+      behavior: "smooth",
+    });
+  };
+
+  document.querySelector(".ms-arrow-left-holder").onclick = function () {
+    container.scrollTo({
+      top: 0,
+      left: Math.min((scrollAmount -= 500), scrollMin),
+      behavior: "smooth",
+    });
+  };
 };
 
 const theMonthlySectionSection = () => {
@@ -760,14 +760,78 @@ const theMonthlySectionSection = () => {
   monthlySectionCardAnimation();
 };
 
+const filterButtonAnimation = () => {
+  filterButton.forEach((element) => {
+    element.addEventListener("mouseenter", () => {
+      gsap.to(element, {
+        borderColor: "var(--fls-strip-button-border-hover)",
+      });
+      gsap.to(cursor, {
+        scale: 2.5,
+        opacity: 0.3,
+        ease: "back(2).inOut",
+      });
+    });
+    element.addEventListener("mouseleave", () => {
+      gsap.to(element, {
+        borderColor: "var(--fls-strip-button-border)",
+      });
+      gsap.to(cursor, {
+        scale: 1,
+        opacity: 1,
+        ease: "back(2).inOut",
+      });
+    });
+  });
+};
+
+const featuredCard = document.querySelectorAll(".fls-product-card");
+
+const featuredProductHover = () => {
+  // featuredCard.forEach(element => {
+  //   element.addEventListener("mouseenter", () => {
+  //     gsap.to();
+  //   });
+  // });
+
+  featuredCard.forEach((card) => {
+    const content = card.querySelector(".fls-product-content");
+    const contentHousing = card.querySelector(".fls-product-content-housing");
+
+    card.addEventListener("mouseenter", () => {
+      gsap.to(content, { opacity: 1, ease: "back(2).inOut" });
+      gsap.to(contentHousing, {
+        opacity: 1,
+        duration: 0.3,
+        ease: "back(2).inOut",
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(content, { opacity: 0, ease: "back(2).inOut" });
+      gsap.to(contentHousing, {
+        opacity: 0,
+        duration: 0.3,
+        ease: "back(2).inOut",
+      });
+    });
+  });
+};
+
+const theFeaturedListingsSection = () => {
+  filterButtonAnimation();
+  featuredProductHover();
+};
+
 const EXECUTIONER = () => {
   theCursor();
   theScrollIndicator();
   theCaseStudyLinkTab();
-  // theLoader();
+  theLoader();
   theHeader();
   theHeroSection();
   theMonthlySectionSection();
+  theFeaturedListingsSection();
 };
 
 EXECUTIONER();

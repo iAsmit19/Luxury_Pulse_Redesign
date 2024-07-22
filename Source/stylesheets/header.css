@@ -1,4 +1,4 @@
-@import url(../stylesheets/main-frame.css);
+@import url(../stylesheets/main-styles.css);
 
 header {
   height: 7vh;
@@ -21,8 +21,12 @@ header {
 
   padding-inline: var(--inline-padding);
 
-  backdrop-filter: blur(60px);
+  backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
+
+  transition: backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1),
+    background-color 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+    -webkit-backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 
 .header-logo {
@@ -184,6 +188,9 @@ nav a:hover:before {
   background-color: var(--buy-panel-bg);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
+  transition: backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1),
+    background-color 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+    -webkit-backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   /* height: 80vh; */
   height: 0;
   width: 100vw;
@@ -367,6 +374,9 @@ nav a:hover:before {
 .search-panel {
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
+  transition: backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1),
+    background-color 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+    -webkit-backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   height: 100%;
   width: 100%;
   display: flex;
@@ -382,7 +392,7 @@ nav a:hover:before {
 }
 
 .search-panel-housing {
-  background-color: var(--buy-panel-bg);
+  background-color: var(--search-panel-bg);
   /* height: 40%; */
   height: 0;
   width: 100%;
@@ -399,7 +409,7 @@ nav a:hover:before {
 }
 
 .search-panel-heading {
-  color: var(--buy-panel-sub-text);
+  color: var(--search-panel-heading-text);
   width: 25rem;
   font-family: "cinzel";
   font-weight: 500;
@@ -416,9 +426,9 @@ nav a:hover:before {
 }
 
 .search-panel-links a {
-  color: var(--global-font);
+  color: var(--search-panel-links-text);
   text-decoration: none;
-  font-family: 'montserrat';
+  font-family: "montserrat";
   font-weight: 500;
   font-size: 16px;
   position: relative;
@@ -426,7 +436,7 @@ nav a:hover:before {
 
 .search-panel-links a::before {
   content: "";
-  background-color: var(--buy-panel-links);
+  background-color: var(--search-panel-links-text);
   height: 1px;
   width: 0;
   position: absolute;

@@ -1,4 +1,4 @@
-@import url(../stylesheets/main-frame.css);
+@import url(../stylesheets/main-styles.css);
 
 .loader {
   background-color: var(--loader-bg);
@@ -11,10 +11,15 @@
   z-index: 99999;
   
   /* Uncomment to disable Loader */
-  display: none;
+  /* display: none; */
 }
 
 .loader-housing {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(30px);
+  transition: backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1),
+    background-color 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
+    -webkit-backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   height: 100%;
   width: 100%;
   position: relative;
