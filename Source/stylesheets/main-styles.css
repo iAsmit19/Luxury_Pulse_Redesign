@@ -100,6 +100,14 @@
   --fls-product-content-bg-hover: #111111b6;
   --fls-product-text-padding: 30px;
   --fls-sub-indentation: 7px;
+  /* News and Stories Section */
+  /* --nss-sub-text: #cacaca; */
+  /* Wallpapers Section */
+  --ws-sub-text-indentation: 10px;
+  --ws-sub-title: #cacaca;
+  --ws-button-border: #292929;
+  /* --ws-button-border-hover: #292929; */
+  --ws-button-bg: #000000d7;
 }
 
 * {
@@ -115,12 +123,13 @@ body {
   overflow-x: hidden;
 
   /* Comment to disable Loader */
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 body {
   overflow: hidden;
-  height: 100vh;
+  /* Comment to Disable Loader */
+  /* height: 100vh; */
 }
 
 ::-webkit-scrollbar {
@@ -177,8 +186,8 @@ body {
   border-top: 1px solid var(--scroll-indicator-border);
   border-bottom: 1px solid var(--scroll-indicator-border);
   border-left: 1px solid var(--scroll-indicator-border);
-  border-top-left-radius: 100px;
-  border-bottom-left-radius: 100px;
+  border-top-right-radius: 100px;
+  border-bottom-right-radius: 100px;
   background-color: var(--scroll-indicator-bg);
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(30px);
@@ -186,10 +195,10 @@ body {
     background-color 0.8s cubic-bezier(0.215, 0.61, 0.355, 1),
     -webkit-backdrop-filter 0.5s cubic-bezier(0.215, 0.61, 0.355, 1);
   height: 45px;
-  width: 200px;
+  width: 80px;
   position: fixed;
   top: 75vh;
-  right: 0;
+  left: 0;
   overflow: hidden;
   user-select: none;
   z-index: 999;

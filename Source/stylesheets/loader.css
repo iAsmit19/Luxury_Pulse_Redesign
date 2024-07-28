@@ -9,9 +9,9 @@
   user-select: none;
   overflow: hidden;
   z-index: 99999;
-  
+
   /* Uncomment to disable Loader */
-  /* display: none; */
+  display: none;
 }
 
 .loader-housing {

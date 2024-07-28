@@ -50,6 +50,160 @@ const maxScroll = msSectionDrag.scrollWidth - msSectionContainer.clientWidth;
 
 // Featured Listing Section
 const filterButton = document.querySelectorAll(".fls-filter-strip button");
+// let flsData = [
+//   {
+//     flsProductIndex: "0",
+//     flsProductTag: "Jet",
+//     flsProductImage:
+//       "./Source/assets/images/products/jets/gulfstream/g-550/g-550.webp",
+//     flsProductCompany: "Gulfstream",
+//     flsAdditionalInfo: "2003",
+//     flsProductName: "G550",
+//     flsProductPrice: "P.O.R.",
+//     flsProductText: `
+//       Available for Lease. Embodying exceptional
+//       international performance, the Gulfstream G550 has
+//       the capacity to fly 6,750 nautical miles or 12,501
+//       kilometers nonstop.
+//     `,
+//   },
+//   {
+//     flsProductIndex: "1",
+//     flsProductTag: "Cars",
+//     flsProductImage:
+//       "./Source/assets/images/products/cars/rolls-royce/ghost/ghost-v-12.webp",
+//     flsProductCompany: "Rolls Royce",
+//     flsAdditionalInfo: "2014",
+//     flsProductName: "Ghost",
+//     flsProductPrice: "$156,654",
+//     flsProductText: `
+//       This stunning Rolls Royce Ghost comes equipped with
+//       factory options to ensure travel in unbeatable
+//       comfort and luxury.
+//     `,
+//   },
+//   {
+//     flsProductIndex: "2",
+//     flsProductTag: "Real Estate",
+//     flsProductImage:
+//       "./Source/assets/images/products/real-estate/villas/cap-d-antibes-villa/cap-d-antibes-luxury-villa.webp",
+//     flsProductCompany: "Luxury Villa",
+//     flsAdditionalInfo: "France",
+//     flsProductName: "Cap d'Antibes",
+//     flsProductPrice: "P.O.R.",
+//     flsProductText: `
+//       In one of the most sought-after areas of Cap
+//       d'Antibes, close to the magnificent French Riviera
+//       beaches of La Garoupe, this exceptional,
+//       Provencal-style villa is situated on more than two
+//       acres of landscaped gardens with panoramic views
+//       extending from the Bay of Antibes to the French
+//       Alps.
+//     `,
+//   },
+//   {
+//     flsProductIndex: "3",
+//     flsProductTag: "Yacht",
+//     flsProductImage:
+//       "./Source/assets/images/products/yachts/madsummer/madsummer.webp",
+//     flsProductCompany: "Moran Yachts & Ships",
+//     flsAdditionalInfo: "2019",
+//     flsProductName: "Madsummer",
+//     flsProductPrice: "€229.000.000",
+//     flsProductText: `
+//       The 312’ 8” (95.3m) MADSUMMER is among the latest
+//       stalwart yachts of the German shipyard Lurssen.
+//     `,
+//   },
+//   {
+//     flsProductIndex: "4",
+//     flsProductTag: "Real Estate",
+//     flsProductImage:
+//       "./Source/assets/images/products/real-estate/islands/bermuda/windsong-house.webp",
+//     flsProductCompany: "Bermuda",
+//     flsAdditionalInfo: "1720",
+//     flsProductName: "Windsong House",
+//     flsProductPrice: "$15,900,000",
+//     flsProductText: `
+//       Spectacularly situated on a private peninsula
+//       ensconced by protected Riddell's Bay and the Great
+//       Sound, Windsong House enjoys an irreplaceable
+//       location that is one of Bermuda's very best.
+//       Originally built in 1720 by a sea captain.
+//     `,
+//   },
+//   {
+//     flsProductIndex: "5",
+//     flsProductTag: "Yacht",
+//     flsProductImage:
+//       "./Source/assets/images/products/yachts/khalilah/khilah-yacht.webp",
+//     flsProductCompany: "YCO",
+//     flsAdditionalInfo: "2015",
+//     flsProductName: "Khalilah",
+//     flsProductPrice: "$28,500,000",
+//     flsProductText: `
+//       The 49m carbon composite-built Palmer Johnson is one
+//       of a kind. Head-turning and bold, the sparkling gold
+//       Supersport Khalilah offers exceptional cruising
+//       performance.
+//     `,
+//   },
+//   {
+//     flsProductIndex: "6",
+//     flsProductTag: "Jets",
+//     flsProductImage:
+//       "./Source/assets/images/products/jets/dassault/falcon-2000-lx/falcon-2000-lx.webp",
+//     flsProductCompany: "Dassault",
+//     flsAdditionalInfo: "2007",
+//     flsProductName: "Falcon 2000LX",
+//     flsProductPrice: "$12,995,000",
+//     flsProductText: `
+//       The 49m carbon composite-built Palmer Johnson is one
+//       of a kind. Head-turning and bold, the sparkling gold
+//       Supersport Khalilah offers exceptional cruising
+//       performance.
+//     `,
+//   },
+//   {
+//     flsProductIndex: "7",
+//     flsProductTag: "Real Estate",
+//     flsProductImage:
+//       "./Source/assets/images/products/real-estate/islands/fiji/island-crown-jewel-of-fiji.webp",
+//     flsProductCompany: "Island",
+//     flsAdditionalInfo: "France",
+//     flsProductName: "Crown Jewel of Fiji",
+//     flsProductPrice: "$17,000,000",
+//     flsProductText: `
+//       For the first time offered for sale in more than a
+//       decade, is the timeless and rare opportunity to own
+//       one of the crown jewels of Fiji real estate, a
+//       spectacular freehold island in the South Pacific
+//       paradise of Fiji. Katafanga Island, also known as
+//       the Blue Lagoon.
+//     `,
+//   },
+//   {
+//     flsProductIndex: "8",
+//     flsProductTag: "Real Estate",
+//     flsProductImage:
+//       "./Source/assets/images/products/real-estate/islands/fiji/island-crown-jewel-of-fiji.webp",
+//     flsProductCompany: "Island",
+//     flsAdditionalInfo: "France",
+//     flsProductName: "Crown Jewel of Fiji",
+//     flsProductPrice: "$17,000,000",
+//     flsProductText: `
+//       For the first time offered for sale in more than a
+//       decade, is the timeless and rare opportunity to own
+//       one of the crown jewels of Fiji real estate, a
+//       spectacular freehold island in the South Pacific
+//       paradise of Fiji. Katafanga Island, also known as
+//       the Blue Lagoon.
+//     `,
+//   },
+// ];
+
+// Wallpapers Section
+const wsButton = document.querySelector(".ws-button-stars");
 
 // Locomotive Scroll [Smooth]
 (function () {
@@ -429,7 +583,7 @@ const cursorOnNavElmenets = () => {
       cursorOnElements();
     });
   });
-  
+
   navElements.forEach((element) => {
     element.addEventListener("mouseleave", () => {
       cursorOffElements();
@@ -818,16 +972,19 @@ const featuredProductHover = () => {
   });
 };
 
+const flsFilterLogic = () => {};
+
 const theFeaturedListingsSection = () => {
   filterButtonAnimation();
   featuredProductHover();
+  flsFilterLogic();
 };
 
 const EXECUTIONER = () => {
   theCursor();
   theScrollIndicator();
   theCaseStudyLinkTab();
-  theLoader();
+  // theLoader();
   theHeader();
   theHeroSection();
   theMonthlySectionSection();
