@@ -25,13 +25,12 @@ main {
 }
 
 .hero-content {
-  background-color: #1a1a1a4e;
   height: 100%;
   width: 100%;
-  z-index: 1;
 }
 
 .hero-content-housing {
+  /* background-color: #1a1a1a63; */
   height: 100%;
   width: 100%;
   padding-inline: var(--inline-padding);
@@ -39,6 +38,8 @@ main {
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
+  position: relative;
+  white-space: nowrap;
 }
 
 #hero-sub-heading {
@@ -112,7 +113,7 @@ main {
 }
 
 .quick-call-strip {
-  /* border-bottom: 1px solid var(--header-border); */
+  border-bottom: 1px solid var(--header-border);
   height: 15vh;
   width: 100%;
   user-select: none;
@@ -949,7 +950,7 @@ main {
     #fff 50%,
     #a5a9cb 70%,
     #3a3946 90%
-  ); */
+    ); */
   animation-play-state: running;
 }
 

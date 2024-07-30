@@ -123,13 +123,13 @@ body {
   overflow-x: hidden;
 
   /* Comment to disable Loader */
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 body {
   overflow: hidden;
   /* Comment to Disable Loader */
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 ::-webkit-scrollbar {
