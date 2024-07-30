@@ -984,7 +984,7 @@ const EXECUTIONER = () => {
   theCursor();
   theScrollIndicator();
   theCaseStudyLinkTab();
-  // theLoader();
+  theLoader();
   theHeader();
   theHeroSection();
   theMonthlySectionSection();

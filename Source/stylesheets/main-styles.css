@@ -36,7 +36,7 @@
   /* Cursor */
   --cursor-size: 15px;
   /* Loader */
-  --loader-bg: #000003c7;
+  --loader-bg: #000000dc;
   --loader-text: #f7f7f7;
   --stars: #ffffff;
   /* Header */
@@ -123,13 +123,13 @@ body {
   overflow-x: hidden;
 
   /* Comment to disable Loader */
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
 }
 
 body {
   overflow: hidden;
   /* Comment to Disable Loader */
-  /* height: 100vh; */
+  height: 100vh;
 }
 
 ::-webkit-scrollbar {

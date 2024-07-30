@@ -11,7 +11,7 @@
   z-index: 99999;
 
   /* Uncomment to disable Loader */
-  display: none;
+  /* display: none; */
 }
 
 .loader-housing {
