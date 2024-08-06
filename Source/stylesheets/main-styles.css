@@ -123,13 +123,13 @@ body {
   overflow-x: hidden;
 
   /* Comment to disable Loader */
-  overflow-y: hidden;
+  /* overflow-y: hidden; */
 }
 
 body {
   overflow: hidden;
   /* Comment to Disable Loader */
-  height: 100vh;
+  /* height: 100vh; */
 }
 
 ::-webkit-scrollbar {
@@ -344,7 +344,8 @@ body {
 }
 
 .placeholder-section {
-  background: url(../assets/images/backgrounds/macosmojavexwings.png) top;
+  background: url(../assets/images/placeholder-section/2909283.jpg) center;
+  text-shadow: 1px 1px 40px#000000;
   height: 100vh;
   width: 100%;
   display: flex;

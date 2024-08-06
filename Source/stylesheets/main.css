@@ -988,3 +988,10 @@ main {
   font-family: "montserrat";
   cursor: pointer;
 }
+
+
+.week-sub-section {
+  background: url(../assets/images/);
+  height: 30vh;
+  width: 100%;
+}
